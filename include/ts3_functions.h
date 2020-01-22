@@ -275,11 +275,11 @@ struct TS3Functions {
 	unsigned int (*getClientNeededPermission)(uint64 serverConnectionHandlerID, const char* permissionName, int* result);
 	void         (*notifyKeyEvent)(const char *pluginID, const char *keyIdentifier, int up_down);
 
-	/* Recording */
-	unsigned int (*startRecording)(uint64 serverConnectionHandlerID, int multitrack, int noFileSelector, const char* path);
+	/* Single-Track/Multi-Track recording */
+    unsigned int (*startRecording)(uint64 serverConnectionHandlerID, int multitrack, int noFileSelector, const char* path);
 	unsigned int (*stopRecording)(uint64 serverConnectionHandlerID);
 
-	/* Convenience */
+	/* Convenience functions */
 	unsigned int (*requestClientsMove)(uint64 serverConnectionHandlerID, const anyID* clientIDArray, uint64 newChannelID, const char* password, const char* returnCode);
 	unsigned int (*requestClientsKickFromChannel)(uint64 serverConnectionHandlerID, const anyID* clientIDArray, const char* kickReason, const char* returnCode);
 	unsigned int (*requestClientsKickFromServer)(uint64 serverConnectionHandlerID, const anyID* clientIDArray, const char* kickReason, const char* returnCode);
@@ -289,6 +289,13 @@ struct TS3Functions {
 	unsigned int (*clientPropertyFlagToString)(size_t clientPropertyFlag, char** resultString);
 	unsigned int (*channelPropertyFlagToString)(size_t channelPropertyFlag, char** resultString);
 	unsigned int (*serverPropertyFlagToString)(size_t serverPropertyFlag, char** resultString);
+
+	/* Server editing */
+	unsigned int (*setServerVariableAsInt)(uint64 serverConnectionHandlerID, size_t flag, int value);
+	unsigned int (*setServerVariableAsUInt64)(uint64 serverConnectionHandlerID, size_t flag, uint64 value);
+	unsigned int (*setServerVariableAsDouble)(uint64 serverConnectionHandlerID, size_t flag, double value);
+	unsigned int (*setServerVariableAsString)(uint64 serverConnectionHandlerID, size_t flag, const char* value);
+	unsigned int (*flushServerUpdates)(uint64 serverConnectionHandlerID, const char* returnCode);
 };
 
 #ifdef __cplusplus
