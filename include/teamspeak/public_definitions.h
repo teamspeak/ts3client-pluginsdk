@@ -20,6 +20,10 @@
 //minimum amount of seconds before a clientID that was in use can be assigned to a new client
 #define TS3_MIN_SECONDS_CLIENTID_REUSE 300
 
+#if defined(__MINGW32__) || defined(__MINGW64__)
+#include <_mingw.h>
+#endif
+
 #if defined(WIN32) || defined(__WIN32__) || defined(_WIN32)
 	typedef unsigned __int16 anyID;
 	typedef unsigned __int64 uint64;
