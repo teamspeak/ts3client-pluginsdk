@@ -1,10 +1,10 @@
-# TeamSpeak 3 Client Plugin SDK: Helper Repository
+# TeamSpeak 3 Client Plugin SDK
 
 Welcome to the official helper repository for creating native plugins for the TeamSpeak 3 Client. This repository includes example code and SDK header files to assist in the development of your plugin.
 
 ## Quick Start Guide
 
-To get started, it's highly recommended that you base your plugin on the provided test plugin. This test plugin includes the necessary special functions that your plugin must export. If certain optional functions are not needed for your project, feel free to remove them. For more details, please refer to the code comments.
+To get started, it's highly recommended that you base your plugin on the provided test plugin (`src/plugin.c`). This test plugin includes the necessary special functions that your plugin must export. If certain optional functions are not needed for your project, feel free to remove them. For more details, please refer to the code comments.
 
 ## Additional Resources
 
